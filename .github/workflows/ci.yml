@@ -3,11 +3,6 @@ name: ci
 on:
   push:
     branches:
-      - main
-      - master
-  pull_request:
-    branches:
-      - main
       - master
 
 jobs:
@@ -47,3 +42,12 @@ jobs:
 
       - name: Run linter 👀
         run: yarn lint
+
+      - name: Login to docker registry
+        run: docker login ${{ secrets.DOCKER_REGISTRY_HOST }} -u ${{ secrets.DOCKER_REGISTRY_USER }} -p ${{ secrets.DOCKER_REGISTRY_SECRET }}
+
+      - name: Build docker image
+        run: docker build . -f .github/Dockerfile -t registry.nimasfl.ir/wedding-ui:latest
+
+      - name: Push docker image
+        run: docker push registry.nimasfl.ir/wedding-ui:latest
