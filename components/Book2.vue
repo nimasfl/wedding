@@ -2,7 +2,7 @@
   <div class="card" :class="shouldMoveCard ? 'card-hover' : ''">
     <div class="imgBox">
       <div class="bark">
-        <p>hello beautiful</p>
+        <p>hello world. welcome to my wedding</p>
       </div>
       <img
         src="/paper.jpg"
