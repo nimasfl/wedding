@@ -11,7 +11,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Book1',
+  name: 'Book1'
 })
 </script>
 
@@ -77,26 +77,6 @@ export default Vue.extend({
   transform: rotateY(-30deg) scale(1.1);
   box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
 }
-
-/*.book:hover .page3 {*/
-/*  transform: rotateY(-140deg) scale(1.1);*/
-/*  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);*/
-/*}*/
-
-/*.book:hover .page4 {*/
-/*  transform: rotateY(-40deg) scale(1.1);*/
-/*  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);*/
-/*}*/
-
-/*.book:hover .page5 {*/
-/*  transform: rotateY(-130deg) scale(1.1);*/
-/*  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);*/
-/*}*/
-
-/*.book:hover .page6 {*/
-/*  transform: rotateY(-50deg) scale(1.1);*/
-/*  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);*/
-/*}*/
 
 .book:hover .back {
   transform: rotateY(-20deg) scale(1.1);

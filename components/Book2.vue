@@ -1,13 +1,21 @@
 <template>
-  <div :class="cardClass">
+  <div class="card" :class="shouldMoveCard ? 'card-hover' : ''">
     <div class="imgBox">
       <div class="bark">
         <p>hello beautiful</p>
       </div>
-      <img src="/paper.jpg" style="width: 400px; height: 500px; max-height: max-content; max-width: 500px" alt="."/>
+      <img
+        src="/paper.jpg"
+        style="
+          width: 400px;
+          height: 500px;
+          max-height: max-content;
+          max-width: 500px;
+        "
+        alt="."
+      />
     </div>
-    <div class="details">
-    </div>
+    <div class="details"></div>
   </div>
 </template>
 
@@ -15,12 +23,12 @@
 export default {
   name: 'Book2',
   data: () => ({
-    cardClass: 'card'
+    shouldMoveCard: false
   }),
   mounted() {
     setTimeout(() => {
-      this.cardClass += ' card-hover'
-    },0)
+      this.shouldMoveCard = true
+    }, 0)
   }
 }
 </script>
@@ -36,9 +44,6 @@ h4 {
   font-family: 'Amatic SC', cursive !important;
 }
 
-.color1{color:#1BBC9B}/*MOUNTAIN MEADOW*/
-.color2{color:#C0392B/*TALL POPPY*/}
-
 .card {
   color: #013243; /*SHERPA BLUE*/
   position: absolute;
@@ -48,8 +53,9 @@ h4 {
   height: 500px;
   background: #e0e1dc;
   transform-style: preserve-3d;
-  transform: translate(-50%,-20%) perspective(2000px);
-  box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 300px 0 50px rgba(0,0,0,.5);
+  transform: translate(-50%, -20%) perspective(2000px);
+  box-shadow: inset 300px 0 50px rgba(0, 0, 0, 0.5),
+    300px 0 50px rgba(0, 0, 0, 0.5);
   transition: 3s;
 }
 
@@ -60,8 +66,9 @@ h4 {
   width: 400px;
   height: 500px;
   transform-style: preserve-3d;
-  transform: translate(-50%,-20%) perspective(4000px);
-  box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 60px 0 20px rgba(0,0,0,.5);
+  transform: translate(-50%, -20%) perspective(4000px);
+  box-shadow: inset 300px 0 50px rgba(0, 0, 0, 0.5),
+    60px 0 20px rgba(0, 0, 0, 0.5);
   transition: 3s;
 }
 
@@ -70,41 +77,17 @@ h4 {
 }
 
 .card-hover {
-  transform: translate(0%,-50%) perspective(2000px) scale(1.4);
-  box-shadow: inset 10px 0 50px rgba(0,0,0,.5), 10px 0 50px rgba(0,0,0,.5);
+  transform: translate(0%, -50%) perspective(2000px) scale(1.4);
+  box-shadow: inset 10px 0 50px rgba(0, 0, 0, 0.5),
+    10px 0 50px rgba(0, 0, 0, 0.5);
 }
-
-/*.card:before {*/
-/*  content:'';*/
-/*  position: absolute;*/
-/*  top: -5px;*/
-/*  left: 0;*/
-/*  width: 100%;*/
-/*  height: 5px;*/
-/*  background: #BAC1BA;*/
-/*  transform-origin: bottom;*/
-/*  transform: skewX(-45deg);*/
-/*}*/
-
-
-/*.card:after {*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  right: -5px;*/
-/*  width: 5px;*/
-/*  height: 100%;*/
-/*  background: #92A29C;*/
-/*  transform-origin: left;*/
-/*  transform: skewY(-45deg);*/
-/*}*/
 
 .card .imgBox {
   width: 100%;
   height: 100%;
   position: relative;
   transform-origin: left;
-  transition: .7s;
+  transition: 0.7s;
 }
 
 .card .bark {
@@ -129,11 +112,11 @@ h4 {
 .card-hover .bark {
   opacity: 1;
   transition: 3s;
-  box-shadow: inset 10px 0 50px rgba(0,0,0,.5);
+  box-shadow: inset 10px 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .details {
-  background-image: url("/frontpage.jpeg");
+  background-image: url('/frontpage.jpeg');
   background-size: cover;
   height: 500px;
   width: 400px;
@@ -153,9 +136,5 @@ h4 {
 
 .card .details h4 {
   text-align: center;
-}
-
-.text-right {
-  text-align: right;
 }
 </style>
