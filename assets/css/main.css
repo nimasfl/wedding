@@ -6,7 +6,7 @@
   font-family: dana;
   font-style: normal;
   font-weight: 10;
-  src: url('../assets/fonts/shekaste.ttf') format('truetype');
+  src: url('../fonts/shekaste.ttf') format('truetype');
 }
 
 @layer base {
