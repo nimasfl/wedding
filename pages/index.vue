@@ -1,19 +1,16 @@
 <template>
-  <div class="md:w-2/3 md:mx-auto lg:w-2/5 lg:mx-auto xl:w-1/3 xl:mx-auto">
-    <div class="relative min-h-screen background">
-      <div class="rounded-lg opacity-[.15] background-us min-h-screen" />
-      <div class="absolute top-0 right-[42%]">
-        <p class="pt-44 font-semibold text-2xl text-gray-600">بسمه تعالی</p>
-      </div>
-      <div class="absolute top-0 right-0 px-[24%]">
-        <p class="pt-64  font-normal text-xl text-gray-500 leading-loose">
-          خانه ای ساخته ایم سایبانش همه عشق زیر پا فرش غرور و حصارش همه تکرار صفا
-          ما در این جمع لطیف لطف دیدار تو را می طلبم.
-        </p>
-      </div>
-      <div class="absolute bottom-[25%] left-[40%]">
-        <a href="https://goo.gl/maps/zznmRJALY3ZnFWmTA" class="text-gray-600 text-2xl font-semibold pl-9 pr-4 transition ease-out duration-700 hover:text-white hover:bg-slate-700 rounded-3xl">مسیریابی</a>
-      </div>
+  <div class="bg-[#EEF5F0] h-screen flex justify-center" @click="clicked">
+    <audio id="music" src="/love-story.mp3" loop="loop" autoplay></audio>
+    <div class="image1 w-screen md:w-[540px]" :class="animate && 'slide-out'">
+      <div class="bg-[#EEF5F0] h-8 w-full absolute bottom-0" />
+      <div class="bg-[#EEF5F0] w-2 absolute bottom-0 top-0 left-0" />
+      <div class="bg-[#EEF5F0] w-2 absolute bottom-0 top-0 right-0" />
+    </div>
+    <div class="image2 w-screen md:w-[540px] relative">
+      <a
+        href="https://goo.gl/maps/xS2TU7zezv4hQx6q7"
+        class="absolute bottom-[15%] left-[5%] top-[70%] right-[70%] z-10 hover:cursor-pointer"
+      />
     </div>
   </div>
 </template>
@@ -22,19 +19,51 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data: () => ({
+    animate: false,
+    play: false
+  }),
+  methods: {
+    clicked() {
+      ;(document.getElementById('music') as HTMLAudioElement).play()
+      this.animate = true
+    }
+  }
 })
 </script>
 
 <style scoped>
-.background {
-  background-image: url('../assets/images/frame.png');
+.image1 {
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  background-image: url('/wedding31.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  z-index: 3;
+  transition: transform ease-out 7000ms, opacity ease-out 1000ms,
+    box-shadow ease-out 500ms;
 }
-.background-us {
-  background-image: url('../assets/images/us.jpg');
+
+.slide-out {
+  transform: scale(0.4, 0.4) rotate3d(1, 2, 2, 30deg) translateX(300%);
+  box-shadow: 22px 17px 41px 13px rgba(0, 0, 0, 0.64);
+}
+
+.image2 {
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  background-image: url('/wedding32.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  z-index: 2;
+}
+
+@media (min-width: 540px) {
+  .image2 {
+    box-shadow: 22px 17px 41px 13px rgba(0, 0, 0, 0.64);
+  }
 }
 </style>
