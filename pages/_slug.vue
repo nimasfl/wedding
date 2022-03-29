@@ -51,9 +51,9 @@ export default Vue.extend({
       ;(document.getElementById('music') as HTMLAudioElement).play()
       this.animate = true
       this.showClick = false
-      if (this.timer) {
-        clearTimeout(this.timer)
-      }
+      // if (this.timer) {
+      //   clearTimeout(this.timer)
+      // }
     }
   }
 })
