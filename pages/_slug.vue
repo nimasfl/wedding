@@ -3,8 +3,11 @@
     <audio id="music" src="/love-story.mp3" loop="loop" autoplay></audio>
     <div class="image1 w-screen md:w-[540px]" :class="animate && 'slide-out'">
       <div
-        class="absolute left-0 right-0 top-0 mt-12 opacity-0"
-        :class="showClick && 'appear'"
+        :class="
+          showClick
+            ? 'absolute left-0 right-0 top-0 mt-12 appear opacity-100'
+            : 'absolute left-0 right-0 top-0 mt-12 opacity-0 appear'
+        "
       >
         <p class="text-center text-[2.5rem] font-bold">کلیک کنید</p>
       </div>
@@ -38,7 +41,7 @@ export default Vue.extend({
   mounted() {
     this.timer = setTimeout(() => {
       this.showClick = true
-    }, 2000)
+    }, 3000)
   },
   methods: {
     parse() {
@@ -51,9 +54,9 @@ export default Vue.extend({
       ;(document.getElementById('music') as HTMLAudioElement).play()
       this.animate = true
       this.showClick = false
-      // if (this.timer) {
-      //   clearTimeout(this.timer)
-      // }
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
     }
   }
 })
@@ -73,7 +76,6 @@ export default Vue.extend({
 }
 
 .appear {
-  opacity: 100%;
   transition: opacity ease-in 1000ms;
 }
 
